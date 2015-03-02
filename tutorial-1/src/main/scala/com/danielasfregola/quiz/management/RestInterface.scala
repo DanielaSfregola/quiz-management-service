@@ -121,7 +121,7 @@ class Responder(requestContext:RequestContext) extends Actor with ActorLogging {
       killYourself
 
     case QuizAlreadyExists =>
-      requestContext.complete(StatusCodes.BadRequest)
+      requestContext.complete(StatusCodes.Conflict)
       killYourself
 
     case question: Question =>
