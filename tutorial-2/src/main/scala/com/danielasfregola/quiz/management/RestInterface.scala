@@ -26,9 +26,7 @@ trait RestApi extends HttpService with ActorLogging { actor: Actor =>
   
   val quizManager = new QuizManager
   val questionManager = new QuestionManager
-
-  var quizzes = Vector[Quiz]()
-
+  
   def routes: Route =
     
     pathPrefix("quizzes") {
