@@ -2,7 +2,7 @@ package com.danielasfregola.quiz.management
 
 import com.danielasfregola.quiz.management.dao.QuizDao
 import com.danielasfregola.quiz.management.model.api.QuestionProtocol._
-import com.danielasfregola.quiz.management.model.persistance.QuizEntity
+import com.danielasfregola.quiz.management.model.persistence.QuizEntity
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future

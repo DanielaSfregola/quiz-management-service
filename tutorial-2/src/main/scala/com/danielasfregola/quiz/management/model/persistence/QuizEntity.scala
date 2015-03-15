@@ -1,4 +1,4 @@
-package com.danielasfregola.quiz.management.model.persistance
+package com.danielasfregola.quiz.management.model.persistence
 
 import com.danielasfregola.quiz.management.model.api.QuizProtocol.Quiz
 import reactivemongo.bson.{BSONDocumentWriter, BSONDocument, BSONDocumentReader, BSONObjectID}

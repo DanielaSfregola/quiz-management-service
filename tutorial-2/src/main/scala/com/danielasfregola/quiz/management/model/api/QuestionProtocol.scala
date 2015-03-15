@@ -1,6 +1,6 @@
 package com.danielasfregola.quiz.management.model.api
 
-import com.danielasfregola.quiz.management.model.persistance.QuizEntity
+import com.danielasfregola.quiz.management.model.persistence.QuizEntity
 
 object QuestionProtocol {
 

@@ -1,6 +1,6 @@
 package com.danielasfregola.quiz.management.dao
 
-import com.danielasfregola.quiz.management.model.persistance.QuizEntity
+import com.danielasfregola.quiz.management.model.persistence.QuizEntity
 import reactivemongo.api.QueryOpts
 import reactivemongo.api.collections.default.BSONCollection
 import reactivemongo.bson.{BSONDocument, BSONObjectID}
@@ -11,7 +11,7 @@ import scala.util.Random
 
 trait QuizDao extends MongoDao {
   
-  import com.danielasfregola.quiz.management.model.persistance.QuizEntity._
+  import com.danielasfregola.quiz.management.model.persistence.QuizEntity._
   import com.danielasfregola.quiz.management.model.api.QuizProtocol._
   
   val collection = db[BSONCollection]("quizzes")
