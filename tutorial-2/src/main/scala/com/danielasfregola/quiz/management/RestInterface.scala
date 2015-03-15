@@ -101,8 +101,6 @@ class Responder(requestContext:RequestContext) extends Actor with ActorLogging {
     case WrongAnswer =>
       requestContext.complete(StatusCodes.NotFound)
       killYourself
-
-    case xx => println(xx.getClass)
   }
 
   private def killYourself = self ! PoisonPill
