@@ -1,14 +1,12 @@
 package com.danielasfregola.quiz.management.resources
 
+import com.danielasfregola.quiz.management.entities.{QuestionUpdate, Question}
+import com.danielasfregola.quiz.management.routing.MyHttpService
 import com.danielasfregola.quiz.management.serializers.JsonSupport
-import com.danielasfregola.quiz.management.services.{Question, QuestionService, QuestionUpdate}
+import com.danielasfregola.quiz.management.services.QuestionService
 import spray.routing._
 
-import scala.concurrent.ExecutionContext
-
-trait QuestionResource extends HttpService with JsonSupport {
-
-  implicit val executionContext: ExecutionContext
+trait QuestionResource extends MyHttpService {
 
   val questionService: QuestionService
 
@@ -16,10 +14,11 @@ trait QuestionResource extends HttpService with JsonSupport {
     pathEnd {
       post {
         entity(as[Question]) { question =>
-          questionService.createQuestion(question)
-          ???
+          completeWithLocationHeader(
+            resourceId = questionService.createQuestion(question),
+            ifDefinedStatus = 201, ifEmptyStatus = 409)
+          }
         }
-      }
     } ~
     path(Segment) { id =>
       get {
@@ -27,14 +26,15 @@ trait QuestionResource extends HttpService with JsonSupport {
       } ~
       put {
         entity(as[QuestionUpdate]) { update =>
-          questionService.updateQuestion(id, update)
-          ???
+          complete(questionService.updateQuestion(id, update))
         }
-      }
+      } ~
       delete {
         complete(questionService.deleteQuestion(id))
       }
     }
   }
+
+
 
 }

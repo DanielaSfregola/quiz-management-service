@@ -1,18 +1,16 @@
 package com.danielasfregola.quiz.management.services
 
+import com.danielasfregola.quiz.management.entities.{Question, QuestionUpdate}
+
 import scala.concurrent.{ExecutionContext, Future}
 
-case class Question(id: String, title: String, text: String)
-
-case class QuestionUpdate(title: Option[String], text: Option[String])
-
-class QuestionService(implicit executionContext: ExecutionContext) {
+class QuestionService(implicit val executionContext: ExecutionContext) {
 
   var questions = Vector.empty[Question]
 
   def createQuestion(question: Question): Future[Option[String]] = Future {
     questions.find(_.id == question.id) match {
-      case Some(q) => None // conflict! id is already taken
+      case Some(q) => None // Conflict! id is already taken
       case None =>
         questions = questions :+ question
         Some(question.id)
@@ -23,7 +21,7 @@ class QuestionService(implicit executionContext: ExecutionContext) {
     questions.find(_.id == id)
   }
 
-  def updateQuestion(id: String, update: QuestionUpdate): Future[Option[String]] = {
+  def updateQuestion(id: String, update: QuestionUpdate): Future[Option[Question]] = {
 
     def updateEntity(question: Question): Question = {
       val title = update.title.getOrElse(question.title)
@@ -33,16 +31,18 @@ class QuestionService(implicit executionContext: ExecutionContext) {
 
     getQuestion(id).flatMap { maybeQuestion =>
       maybeQuestion match {
-        case None => Future { None } // No question found
+        case None => Future { None } // No question found, nothing to update
         case Some(question) =>
           val updatedQuestion = updateEntity(question)
-          deleteQuestion(id).flatMap(_ => createQuestion(updatedQuestion))
+          deleteQuestion(id).flatMap { _ =>
+            createQuestion(updatedQuestion).map(_ => Some(updatedQuestion))
+          }
       }
     }
   }
 
   def deleteQuestion(id: String): Future[Unit] = Future {
-    questions.filterNot(_.id == id)
+    questions = questions.filterNot(_.id == id)
   }
 
 
