@@ -2,7 +2,6 @@ package com.danielasfregola.quiz.management.resources
 
 import com.danielasfregola.quiz.management.entities.{QuestionUpdate, Question}
 import com.danielasfregola.quiz.management.routing.MyHttpService
-import com.danielasfregola.quiz.management.serializers.JsonSupport
 import com.danielasfregola.quiz.management.services.QuestionService
 import spray.routing._
 
@@ -34,7 +33,4 @@ trait QuestionResource extends MyHttpService {
       }
     }
   }
-
-
-
 }
