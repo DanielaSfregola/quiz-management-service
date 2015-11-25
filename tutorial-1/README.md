@@ -37,8 +37,8 @@ case class Answer(answer: String)
 
 ### Create a quiz
 ```
-curl -v -H "Content-Type: application/json"
-     -X POST http://localhost:5000/quizzes
+curl -v -H "Content-Type: application/json" \
+     -X POST http://localhost:5000/quizzes \
      -d '{"id": "test", "question": "is scala cool?", "correctAnswer": "YES!"}'
 ```
 
@@ -59,7 +59,7 @@ curl -v http://localhost:5000/questions/test
 
 ### Answer a question
 ```
-curl -v -H "Content-Type: application/json"
-     -X PUT http://localhost:5000/questions/test
-     -d { "answer": "YES!" }
+curl -v -H "Content-Type: application/json" \
+     -X PUT http://localhost:5000/questions/test \
+     -d '{ "answer": "YES!" }'
 ```
