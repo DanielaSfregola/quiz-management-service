@@ -4,8 +4,6 @@ import akka.actor._
 import akka.io.IO
 import akka.pattern.ask
 import akka.util.Timeout
-import com.danielasfregola.twitter4s.TwitterClient
-import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.typesafe.config.ConfigFactory
 import spray.can.Http
 
@@ -32,10 +30,4 @@ object Main extends App {
           s"$host:$port, ${cmd.failureMessage}")
         system.shutdown()
     }
-
-  val consumerToken = ConsumerToken(key = "my-consumer-key", secret = "my-consumer-secret")
-  val accessToken = AccessToken(key = "my-access-key", secret = "my-access-secret")  
-  val client = new TwitterClient(consumerToken, accessToken)
-
-  val tweets = client.getUserTimelineForUser()
 }
