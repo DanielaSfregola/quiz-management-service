@@ -1,13 +1,12 @@
 package com.danielasfregola.quiz.management
 
-import akka.actor._
-import akka.io.IO
-import akka.pattern.ask
-import akka.util.Timeout
-import com.typesafe.config.ConfigFactory
-import spray.can.Http
-
 import scala.concurrent.duration._
+import akka.actor._
+import akka.http.scaladsl.Http
+import akka.stream.ActorMaterializer
+import akka.util.Timeout
+
+import com.typesafe.config.ConfigFactory
 
 object Main extends App {
   val config = ConfigFactory.load()
@@ -15,19 +14,16 @@ object Main extends App {
   val port = config.getInt("http.port")
 
   implicit val system = ActorSystem("quiz-management-service")
+  implicit val materializer = ActorMaterializer()
+
+
   implicit val executionContext = system.dispatcher
   implicit val timeout = Timeout(10 seconds)
 
-  val api = system.actorOf(Props(new RestInterface))
+  val api = ???
 
-  IO(Http).ask(Http.Bind(listener = api, interface = host, port = port))
-    .mapTo[Http.Event]
-    .map {
-      case Http.Bound(address) =>
-        println(s"REST interface bound to $address")
-      case Http.CommandFailed(cmd) =>
-        println("REST interface could not bind to " +
-          s"$host:$port, ${cmd.failureMessage}")
-        system.shutdown()
-    }
+  Http().bindAndHandle(handler = api, interface = host, port = port) map { binding =>
+    println(s"REST interface bound to ${binding.localAddress}") } recover { case ex =>
+    println(s"REST interface could not bind to $host:$port", ex.getMessage)
+  }
 }

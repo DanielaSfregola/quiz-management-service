@@ -13,12 +13,11 @@ resolvers ++= Seq("Typesafe Repository" at "http://repo.typesafe.com/typesafe/re
 
 libraryDependencies ++= {
   val AkkaVersion       = "2.3.9"
-  val SprayVersion      = "1.3.2"
+  val AkkaHttpVersion   = "2.0.1"
   val Json4sVersion     = "3.2.11"
   Seq(
-    "io.spray"          %% "spray-can"       % SprayVersion,
-    "io.spray"          %% "spray-routing"   % SprayVersion,
     "com.typesafe.akka" %% "akka-slf4j"      % AkkaVersion,
+    "com.typesafe.akka" %% "akka-http-experimental" % AkkaHttpVersion,
     "ch.qos.logback"    %  "logback-classic" % "1.1.2",
     "org.json4s"        %% "json4s-native"   % Json4sVersion,
     "org.json4s"        %% "json4s-ext"      % Json4sVersion
