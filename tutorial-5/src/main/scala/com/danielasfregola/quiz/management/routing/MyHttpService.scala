@@ -1,14 +1,14 @@
 package com.danielasfregola.quiz.management.routing
 
 import com.danielasfregola.quiz.management.serializers.JsonSupport
-import spray.http.HttpHeaders
-import spray.routing._
 
 import scala.concurrent.{ExecutionContext, Future}
+import akka.http.scaladsl.model.headers.Location
+import akka.http.scaladsl.server.{Directives, Route}
 
-trait MyHttpService extends HttpService with JsonSupport {
+trait MyHttpService extends Directives with JsonSupport {
 
-  implicit val executionContext: ExecutionContext
+  implicit def executionContext: ExecutionContext
 
   def completeWithLocationHeader[T](resourceId: Future[Option[T]], ifDefinedStatus: Int, ifEmptyStatus: Int): Route =
     onSuccess(resourceId) { maybeT =>
@@ -19,11 +19,11 @@ trait MyHttpService extends HttpService with JsonSupport {
     }
 
   def completeWithLocationHeader[T](status: Int, resourceId: T): Route =
-    requestInstance { request =>
+    extractRequestContext { requestContext =>
+      val request = requestContext.request
       val location = request.uri.copy(path = request.uri.path / resourceId.toString)
-      respondWithHeader(HttpHeaders.Location(location)) {
+      respondWithHeader(Location(location)) {
         complete(status, None)
       }
     }
-
 }

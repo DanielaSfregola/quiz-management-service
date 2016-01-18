@@ -1,20 +1,21 @@
 package com.danielasfregola.quiz.management
 
+import scala.concurrent.ExecutionContext
+
+import akka.http.scaladsl.server.Route
+
 import com.danielasfregola.quiz.management.resources.QuestionResource
 import com.danielasfregola.quiz.management.services.QuestionService
-import spray.routing._
 
-import scala.concurrent.ExecutionContext
-import scala.language.postfixOps
+trait RestInterface extends Resources {
 
-class RestInterface(implicit val executionContext: ExecutionContext) extends HttpServiceActor with Resources {
+  implicit def executionContext: ExecutionContext
 
-  def receive = runRoute(routes)
-
-  val questionService = new QuestionService
+  lazy val questionService = new QuestionService
 
   val routes: Route = questionRoutes
 
 }
 
 trait Resources extends QuestionResource
+

@@ -8,7 +8,7 @@ import akka.util.Timeout
 
 import com.typesafe.config.ConfigFactory
 
-object Main extends App {
+object Main extends App with RestInterface {
   val config = ConfigFactory.load()
   val host = config.getString("http.host")
   val port = config.getInt("http.port")
@@ -20,7 +20,7 @@ object Main extends App {
   implicit val executionContext = system.dispatcher
   implicit val timeout = Timeout(10 seconds)
 
-  val api = ???
+  val api = routes
 
   Http().bindAndHandle(handler = api, interface = host, port = port) map { binding =>
     println(s"REST interface bound to ${binding.localAddress}") } recover { case ex =>

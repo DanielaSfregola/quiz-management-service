@@ -1,9 +1,10 @@
 package com.danielasfregola.quiz.management.resources
 
-import com.danielasfregola.quiz.management.entities.{QuestionUpdate, Question}
+import akka.http.scaladsl.server.Route
+
+import com.danielasfregola.quiz.management.entities.{Question, QuestionUpdate}
 import com.danielasfregola.quiz.management.routing.MyHttpService
 import com.danielasfregola.quiz.management.services.QuestionService
-import spray.routing._
 
 trait QuestionResource extends MyHttpService {
 
@@ -32,5 +33,7 @@ trait QuestionResource extends MyHttpService {
         complete(204, questionService.deleteQuestion(id))
       }
     }
+
   }
 }
+

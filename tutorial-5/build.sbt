@@ -9,7 +9,8 @@ organization := "com.danielasfregola"
 scalaVersion := "2.11.5"
 
 resolvers ++= Seq("Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/",
-                  "Spray Repository"    at "http://repo.spray.io")
+                  "Spray Repository"    at "http://repo.spray.io",
+                  Resolver.bintrayRepo("hseeberger", "maven"))
 
 libraryDependencies ++= {
   val AkkaVersion       = "2.3.9"
@@ -20,7 +21,8 @@ libraryDependencies ++= {
     "com.typesafe.akka" %% "akka-http-experimental" % AkkaHttpVersion,
     "ch.qos.logback"    %  "logback-classic" % "1.1.2",
     "org.json4s"        %% "json4s-native"   % Json4sVersion,
-    "org.json4s"        %% "json4s-ext"      % Json4sVersion
+    "org.json4s"        %% "json4s-ext"      % Json4sVersion,
+    "de.heikoseeberger" %% "akka-http-json4s" % "1.4.2"
   )
 }
 
