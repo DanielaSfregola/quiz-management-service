@@ -1,7 +1,7 @@
 # Quiz Management Service
-Tutorial on how to build a REST CRUD application with Spray
+Tutorial on how to build a REST CRUD application with Akka-Http
 
-Article: <a href="http://danielasfregola.com/2015/11/23/how-to-build-a-scala-rest-crud-application-with-spray/" target="_blank">How to build a Scala REST CRUD application with Spray</a>
+Article: TODO
 
 ## How to run the service
 Clone the repository:
@@ -9,9 +9,9 @@ Clone the repository:
 > git clone https://github.com/DanielaSfregola/quiz-management-service.git
 ```
 
-Get to the `tutorial-4` folder:
+Get to the `tutorial-5` folder:
 ```
-> cd tutorial-4
+> cd tutorial-5
 ```
 
 Run the service:

@@ -30,7 +30,9 @@ trait QuestionResource extends MyHttpService {
         }
       } ~
       delete {
-        complete(204, questionService.deleteQuestion(id))
+        onSuccess(questionService.deleteQuestion(id)) {
+          complete(204, None)
+        }
       }
     }
 
