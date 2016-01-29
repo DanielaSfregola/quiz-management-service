@@ -31,8 +31,8 @@ case class Question(id: String, title: String, text: String)
 ### Create a question
 Request:
 ```
-curl -v -H "Content-Type: application/json"
-	 -X POST http://localhost:5000/questions
+curl -v -H "Content-Type: application/json" \
+	 -X POST http://localhost:5000/questions \
 	 -d '{"id": "test", "title": "MyTitle", "text":"The text of my question"}'
 ```
 Response if the question has been created:

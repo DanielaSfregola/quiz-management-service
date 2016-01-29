@@ -1,10 +1,10 @@
 package com.danielasfregola.quiz.management.routing
 
-import com.danielasfregola.quiz.management.serializers.JsonSupport
-
 import scala.concurrent.{ExecutionContext, Future}
 import akka.http.scaladsl.model.headers.Location
 import akka.http.scaladsl.server.{Directives, Route}
+
+import com.danielasfregola.quiz.management.serializers.JsonSupport
 
 trait MyHttpService extends Directives with JsonSupport {
 
@@ -26,4 +26,15 @@ trait MyHttpService extends Directives with JsonSupport {
         complete(status, None)
       }
     }
+
+  def asOption[T](resource: Option[T]): Route = resource match {
+    case Some(x) => complete(200, x)
+    case None => complete(404, None)
+  }
+  
+  val asEmpty: Unit => Route = { _ => complete(204, None) }
+
+  def complete[T](resource: Future[T])(f: T => Route): Route = onSuccess(resource)(f)
+
+
 }
