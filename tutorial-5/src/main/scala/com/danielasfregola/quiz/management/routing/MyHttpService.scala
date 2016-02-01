@@ -27,14 +27,9 @@ trait MyHttpService extends Directives with JsonSupport {
       }
     }
 
-  def asOption[T](resource: Option[T]): Route = resource match {
-    case Some(x) => complete(200, x)
+  def complete[T](resource: Future[Option[T]]): Route = onSuccess(resource) {
+    case Some(t) => complete(200, t)
     case None => complete(404, None)
   }
-  
-  val asEmpty: Unit => Route = { _ => complete(204, None) }
-
-  def complete[T](resource: Future[T])(f: T => Route): Route = onSuccess(resource)(f)
-
 
 }

@@ -22,15 +22,17 @@ trait QuestionResource extends MyHttpService {
     } ~
     path(Segment) { id =>
       get {
-        complete(questionService.getQuestion(id))(asOption)
+        complete(questionService.getQuestion(id))
       } ~
       put {
         entity(as[QuestionUpdate]) { update =>
-          complete(questionService.updateQuestion(id, update))(asOption)
+          complete(questionService.updateQuestion(id, update))
         }
       } ~
       delete {
-        complete(questionService.deleteQuestion(id))(asEmpty)
+        onSuccess(questionService.deleteQuestion(id)) {
+          complete(204, None)
+        }
       }
     }
 
