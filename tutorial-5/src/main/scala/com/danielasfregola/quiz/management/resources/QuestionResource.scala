@@ -3,10 +3,10 @@ package com.danielasfregola.quiz.management.resources
 import akka.http.scaladsl.server.Route
 
 import com.danielasfregola.quiz.management.entities.{Question, QuestionUpdate}
-import com.danielasfregola.quiz.management.routing.MyHttpService
+import com.danielasfregola.quiz.management.routing.MyResource
 import com.danielasfregola.quiz.management.services.QuestionService
 
-trait QuestionResource extends MyHttpService {
+trait QuestionResource extends MyResource {
 
   val questionService: QuestionService
 

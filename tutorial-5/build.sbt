@@ -9,7 +9,6 @@ organization := "com.danielasfregola"
 scalaVersion := "2.11.5"
 
 resolvers ++= Seq("Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/",
-                  "Spray Repository"    at "http://repo.spray.io",
                   Resolver.bintrayRepo("hseeberger", "maven"))
 
 libraryDependencies ++= {
