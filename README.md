@@ -18,5 +18,5 @@ In this repository we collect a series of tutorial on how to use Spray to build 
 - Code: <a href="https://github.com/DanielaSfregola/quiz-management-service/tree/master/tutorial-4" target="_blank">https://github.com/DanielaSfregola/quiz-management-service/tree/master/tutorial-4</a>
 
 ## Tutorial 5
-...coming soon! Feel free to spy on the code.
-
+- Article: <a href="http://danielasfregola.com/2016/02/07/how-to-build-a-rest-api-with-akka-http/" target="_blank">How to build a REST API with Akka Http</a>
+- Code: <a href="https://github.com/DanielaSfregola/quiz-management-service/tree/master/tutorial-5" target="_blank">https://github.com/DanielaSfregola/quiz-management-service/tree/master/tutorial-5</a>

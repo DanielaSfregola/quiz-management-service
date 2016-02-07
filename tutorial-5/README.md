@@ -1,7 +1,7 @@
 # Quiz Management Service
 Tutorial on how to build a REST CRUD application with Akka-Http
 
-Article: TODO
+Article: http://danielasfregola.com/2016/02/07/how-to-build-a-rest-api-with-akka-http/
 
 ## How to run the service
 Clone the repository:
