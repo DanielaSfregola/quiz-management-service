@@ -1,5 +1,7 @@
 package com.danielasfregola.quiz.management.routing
 
+import akka.http.scaladsl.marshalling.{ToResponseMarshaller, ToResponseMarshallable}
+
 import scala.concurrent.{ExecutionContext, Future}
 import akka.http.scaladsl.model.headers.Location
 import akka.http.scaladsl.server.{Directives, Route}
@@ -27,9 +29,12 @@ trait MyHttpService extends Directives with JsonSupport {
       }
     }
 
-  def complete[T](resource: Future[Option[T]]): Route = onSuccess(resource) {
-    case Some(t) => complete(200, t)
-    case None => complete(404, None)
-  }
+  def complete[T: ToResponseMarshaller](resource: Future[Option[T]]): Route =
+    onSuccess(resource) {
+      case Some(t) => complete(ToResponseMarshallable(t))
+      case None => complete(404, None)
+    }
+
+  def complete(resource: Future[Unit]): Route = onSuccess(resource) { complete(204, None) }
 
 }

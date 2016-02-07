@@ -12,7 +12,6 @@ class QuestionService(implicit val executionContext: ExecutionContext) {
     questions.find(_.id == question.id) match {
       case Some(q) => None // Conflict! id is already taken
       case None =>
-        println(question)
         questions = questions :+ question
         Some(question.id)
     }
