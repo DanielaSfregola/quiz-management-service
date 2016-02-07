@@ -45,14 +45,15 @@ Response if the question has been created:
 > Accept: */*
 > Content-Type: application/json
 > Content-Length: 68
->
+> 
 * upload completely sent off: 68 out of 68 bytes
 < HTTP/1.1 201 Created
-< Server: Quiz Management Service REST API
-< Date: Sat, 21 Nov 2015 11:37:11 GMT
 < Location: http://localhost:5000/questions/test
+< Server: akka-http/2.3.12
+< Date: Sun, 07 Feb 2016 11:16:50 GMT
+< Content-Type: application/json
 < Content-Length: 0
-<
+< 
 * Connection #0 to host localhost left intact
 
 ```
@@ -66,13 +67,15 @@ Response if the question with the specified id already exists:
 > Accept: */*
 > Content-Type: application/json
 > Content-Length: 68
->
+> 
 * upload completely sent off: 68 out of 68 bytes
 < HTTP/1.1 409 Conflict
-< Server: Quiz Management Service REST API
-< Date: Sat, 21 Nov 2015 11:53:34 GMT
+< Server: akka-http/2.3.12
+< Date: Sun, 07 Feb 2016 11:17:07 GMT
+< Content-Type: application/json
 < Content-Length: 0
-<
+< 
+* Connection #0 to host localhost left intact
 ```
 
 
@@ -89,13 +92,13 @@ Response if the question exists:
 > Host: localhost:5000
 > User-Agent: curl/7.43.0
 > Accept: */*
->
+> 
 < HTTP/1.1 200 OK
-< Server: Quiz Management Service REST API
-< Date: Sat, 21 Nov 2015 12:23:34 GMT
-< Content-Type: application/json; charset=UTF-8
+< Server: akka-http/2.3.12
+< Date: Sun, 07 Feb 2016 11:17:31 GMT
+< Content-Type: application/json
 < Content-Length: 64
-<
+< 
 * Connection #0 to host localhost left intact
 {"id":"test","title":"MyTitle","text":"The text of my question"}
 ```
@@ -107,20 +110,21 @@ Response if the question does not exist:
 > Host: localhost:5000
 > User-Agent: curl/7.43.0
 > Accept: */*
->
+> 
 < HTTP/1.1 404 Not Found
-< Server: Quiz Management Service REST API
-< Date: Sat, 21 Nov 2015 12:25:43 GMT
+< Server: akka-http/2.3.12
+< Date: Sun, 07 Feb 2016 11:18:40 GMT
+< Content-Type: application/json
 < Content-Length: 0
-<
+< 
 * Connection #0 to host localhost left intact
 ```
 
 ### Update a question
 Request:
 ```
-curl -v -H "Content-Type: application/json"
-	 -X PUT http://localhost:5000/questions/test
+curl -v -H "Content-Type: application/json" \
+	 -X PUT http://localhost:5000/questions/test \
 	 -d '{"text":"Another text"}'
 ```
 Response if the question has been updated:
@@ -133,14 +137,14 @@ Response if the question has been updated:
 > Accept: */*
 > Content-Type: application/json
 > Content-Length: 23
->
+> 
 * upload completely sent off: 23 out of 23 bytes
 < HTTP/1.1 200 OK
-< Server: Quiz Management Service REST API
-< Date: Sat, 21 Nov 2015 12:44:03 GMT
-< Content-Type: application/json; charset=UTF-8
+< Server: akka-http/2.3.12
+< Date: Sun, 07 Feb 2016 11:19:31 GMT
+< Content-Type: application/json
 < Content-Length: 53
-<
+< 
 * Connection #0 to host localhost left intact
 {"id":"test","title":"MyTitle","text":"Another text"}
 ```
@@ -154,13 +158,14 @@ Response if the question could not be updated:
 > Accept: */*
 > Content-Type: application/json
 > Content-Length: 23
->
+> 
 * upload completely sent off: 23 out of 23 bytes
 < HTTP/1.1 404 Not Found
-< Server: Quiz Management Service REST API
-< Date: Sat, 21 Nov 2015 12:46:15 GMT
+< Server: akka-http/2.3.12
+< Date: Sun, 07 Feb 2016 11:20:07 GMT
+< Content-Type: application/json
 < Content-Length: 0
-<
+< 
 * Connection #0 to host localhost left intact
 ```
 
@@ -177,12 +182,11 @@ Response:
 > Host: localhost:5000
 > User-Agent: curl/7.43.0
 > Accept: */*
->
-< HTTP/1.1 200 OK
-< Server: Quiz Management Service REST API
-< Date: Sat, 21 Nov 2015 12:58:30 GMT
-< Content-Type: application/json; charset=UTF-8
-< Content-Length: 2
-<
+> 
+< HTTP/1.1 204 No Content
+< Server: akka-http/2.3.12
+< Date: Sun, 07 Feb 2016 11:20:30 GMT
+< Content-Type: application/json
+< 
 * Connection #0 to host localhost left intact
 ```

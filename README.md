@@ -17,3 +17,6 @@ In this repository we collect a series of tutorial on how to use Spray to build 
 - Article: <a href="http://danielasfregola.com/2015/11/23/how-to-build-a-scala-rest-crud-application-with-spray/" target="_blank">How to build a Scala REST CRUD application with Spray</a>
 - Code: <a href="https://github.com/DanielaSfregola/quiz-management-service/tree/master/tutorial-4" target="_blank">https://github.com/DanielaSfregola/quiz-management-service/tree/master/tutorial-4</a>
 
+## Tutorial 5
+...coming soon! Feel free to spy on the code.
+
