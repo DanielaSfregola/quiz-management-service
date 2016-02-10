@@ -6,6 +6,8 @@ import com.danielasfregola.quiz.management.entities.{Question, QuestionUpdate}
 import com.danielasfregola.quiz.management.routing.MyResource
 import com.danielasfregola.quiz.management.services.QuestionService
 
+import scala.concurrent.Future
+
 trait QuestionResource extends MyResource {
 
   val questionService: QuestionService
@@ -30,7 +32,8 @@ trait QuestionResource extends MyResource {
         }
       } ~
       delete {
-        complete(questionService.deleteQuestion(id))
+        complete(Future(()))
+//        complete(questionService.deleteQuestion(id))
       }
     }
 

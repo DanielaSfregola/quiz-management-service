@@ -33,6 +33,6 @@ trait MyResource extends Directives with JsonSupport {
       case None => complete(404, None)
     }
 
-  def complete(resource: Future[Unit]): Route = onSuccess(resource) { complete(204, None) }
+//  def complete(resource: Future[Unit]): Route = onSuccess(resource) { complete(204, None) }
 
 }
