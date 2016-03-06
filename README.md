@@ -1,5 +1,5 @@
 # Quiz Management Service
-In this repository we collect a series of tutorial on how to use Spray to build several REST application.
+In this repository we collect tutorials on how to use Spray/Akka Http to build several REST applications.
 
 ## Tutorial 1
 - Article: <a href="http://danielasfregola.com/2015/02/23/how-to-build-a-rest-api-with-spray/" target="_blank">How to build a REST api with Spray and Akka</a>
