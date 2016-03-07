@@ -9,9 +9,9 @@ Clone the repository:
 > git clone https://github.com/DanielaSfregola/quiz-management-service.git
 ```
 
-Get to the `tutorial-4` folder:
+Get to the `spray-crud` folder:
 ```
-> cd tutorial-4
+> cd spray-crud
 ```
 
 Run the service:

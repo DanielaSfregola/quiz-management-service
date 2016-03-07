@@ -13,9 +13,9 @@ In this repository we collect tutorials on how to use Spray/Akka Http to build s
 - Article: <a href="http://danielasfregola.com/2015/08/17/spray-how-to-deserialize-entities-with-json4s/" target="_blank">Spray: how to (de)serialize objects with json4s</a>
 - code: <a href="https://github.com/DanielaSfregola/quiz-management-service/tree/master/spray-json4s" target="_blank" target="_blank">https://github.com/DanielaSfregola/quiz-management-service/tree/master/spray-json4s</a>
 
-## Tutorial 4
+## Tutorial Spray for a CRUD application
 - Article: <a href="http://danielasfregola.com/2015/11/23/how-to-build-a-scala-rest-crud-application-with-spray/" target="_blank">How to build a Scala REST CRUD application with Spray</a>
-- Code: <a href="https://github.com/DanielaSfregola/quiz-management-service/tree/master/tutorial-4" target="_blank">https://github.com/DanielaSfregola/quiz-management-service/tree/master/tutorial-4</a>
+- Code: <a href="https://github.com/DanielaSfregola/quiz-management-service/tree/master/spray-crud" target="_blank">https://github.com/DanielaSfregola/quiz-management-service/tree/master/spray-crud</a>
 
 ## Tutorial 5
 - Article: <a href="http://danielasfregola.com/2016/02/07/how-to-build-a-rest-api-with-akka-http/" target="_blank">How to build a REST API with Akka Http</a>
