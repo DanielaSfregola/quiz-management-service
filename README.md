@@ -5,9 +5,9 @@ In this repository we collect tutorials on how to use Spray/Akka Http to build s
 - Article: <a href="http://danielasfregola.com/2015/02/23/how-to-build-a-rest-api-with-spray/" target="_blank">How to build a REST api with Spray and Akka</a>
 - Code: <a href="https://github.com/DanielaSfregola/quiz-management-service/tree/master/spray-akka" target="_blank">https://github.com/DanielaSfregola/quiz-management-service/tree/master/spray-akka</a>
 
-## Tutorial 2
+## Tutorial Spray and ReactiveMongo
 - Article: <a href="http://danielasfregola.com/2015/03/16/how-to-integrate-reactivemongo-in-your-akka-spray-application/" target="_blank">How to Integrate ReactiveMongo in your Akka Spray Application</a>
-- Code: <a href="https://github.com/DanielaSfregola/quiz-management-service/tree/master/tutorial-2" target="_blank">https://github.com/DanielaSfregola/quiz-management-service/tree/master/tutorial-2</a>
+- Code: <a href="https://github.com/DanielaSfregola/quiz-management-service/tree/master/spray-reactivemongo" target="_blank">https://github.com/DanielaSfregola/quiz-management-service/tree/master/spray-reactivemongo</a>
 
 ## Tutorial 3
 - Article: <a href="http://danielasfregola.com/2015/08/17/spray-how-to-deserialize-entities-with-json4s/" target="_blank">Spray: how to (de)serialize objects with json4s</a>

@@ -9,9 +9,9 @@ Clone the repository:
 > git clone https://github.com/DanielaSfregola/quiz-management-service.git
 ```
 
-Get to the `tutorial-2` folder:
+Get to the `spray-reactivemongo` folder:
 ```
-> cd tutorial-2
+> cd spray-reactivemongo
 ```
 
 Run the service:
