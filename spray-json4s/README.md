@@ -9,9 +9,9 @@ Clone the repository:
 > git clone https://github.com/DanielaSfregola/quiz-management-service.git
 ```
 
-Get to the `tutorial-3` folder:
+Get to the `spray-json4s` folder:
 ```
-> cd tutorial-3
+> cd spray-json4s
 ```
 
 Run the service:
