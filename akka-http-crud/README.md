@@ -9,9 +9,9 @@ Clone the repository:
 > git clone https://github.com/DanielaSfregola/quiz-management-service.git
 ```
 
-Get to the `tutorial-5` folder:
+Get to the `akka-http-crud` folder:
 ```
-> cd tutorial-5
+> cd akka-http-crud
 ```
 
 Run the service:
