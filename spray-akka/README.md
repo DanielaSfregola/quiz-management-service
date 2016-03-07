@@ -1,4 +1,4 @@
-# Quiz Management Service
+# Quiz Management Service: Spray - Akka
 Tutorial on how to build a REST api with Spray and Akka
 
 Article: <a href="http://danielasfregola.com/2015/02/23/how-to-build-a-rest-api-with-spray/" target="_blank">How to build a REST api with Spray and Akka</a>
@@ -9,9 +9,9 @@ Clone the repository:
 > git clone https://github.com/DanielaSfregola/quiz-management-service.git
 ```
 
-Get to the `tutorial-1` folder:
+Get to the `spray-akka` folder:
 ```
-> cd tutorial-1
+> cd spray-akka
 ```
 
 Run the service:
