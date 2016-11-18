@@ -1,19 +1,21 @@
 package com.danielasfregola.quiz.management.serializers
 
-import java.text.SimpleDateFormat
+import com.danielasfregola.quiz.management.entities.{Question, QuestionUpdate}
+import de.heikoseeberger.akkahttpplayjson.PlayJsonSupport
+import play.api.libs.functional.syntax._
+import play.api.libs.json.{JsPath, Json, Reads}
 
-import de.heikoseeberger.akkahttpjson4s.Json4sSupport
-import org.json4s.ext.JodaTimeSerializers
-import org.json4s.{native, DefaultFormats, Formats}
+trait JsonSupport extends PlayJsonSupport {
+  implicit val questionJsonFormat = Json.format[Question]
+  implicit val questionReads: Reads[Question] = (
+    (JsPath \ "id").read[String] and
+      (JsPath \ "title").read[String] and
+      (JsPath \ "text").read[String]
+    )(Question.apply _)
 
-trait JsonSupport extends Json4sSupport {
-
-  implicit val serialization = native.Serialization
-
-  implicit def json4sFormats: Formats = customDateFormat ++ JodaTimeSerializers.all ++ CustomSerializers.all
-
-  val customDateFormat = new DefaultFormats {
-    override def dateFormatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss")
-  }
-  
+  implicit val questionUpdateJsonFormat = Json.format[QuestionUpdate]
+  implicit val questionUpdateReads: Reads[QuestionUpdate] = (
+    (JsPath \ "title").readNullable[String] and
+      (JsPath \ "text").readNullable[String]
+    )(QuestionUpdate.apply _)
 }
